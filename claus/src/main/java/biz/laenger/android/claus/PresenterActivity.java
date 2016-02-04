@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-public abstract class ClausViewActivity<P extends ClausPresenterFragment> extends AppCompatActivity {
+public abstract class PresenterActivity<V, P extends BasePresenter<V>> extends AppCompatActivity {
 
     private static final String TAG_PRESENTER = "PRESENTER";
 
@@ -15,10 +15,11 @@ public abstract class ClausViewActivity<P extends ClausPresenterFragment> extend
         super.onCreate(savedInstanceState);
 
         final FragmentManager fragmentManager = getSupportFragmentManager();
-        P presenter = (P) fragmentManager.findFragmentByTag(TAG_PRESENTER);
-        if (presenter == null) {
-            presenter = instantiatePresenter();
-            fragmentManager.beginTransaction().add(presenter, TAG_PRESENTER).commit();
+        final PresenterFragment presenterFragment = (PresenterFragment) fragmentManager.findFragmentByTag(TAG_PRESENTER);
+
+        if (presenterFragment == null) {
+            final P presenter = instantiatePresenter();
+            fragmentManager.beginTransaction().add(new PresenterFragment<V, P>(presenter), TAG_PRESENTER).commit();
         }
     }
 

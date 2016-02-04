@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import biz.laenger.android.claus.ClausViewActivity;
+import biz.laenger.android.claus.PresenterActivity;
 
-public class MainActivity extends ClausViewActivity<MainPresenter> implements MainView, View.OnClickListener {
+public class MainActivity extends PresenterActivity<MainView, MainPresenter> implements MainView, View.OnClickListener {
 
     private TextView textView;
 

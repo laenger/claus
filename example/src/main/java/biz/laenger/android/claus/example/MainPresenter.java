@@ -1,13 +1,14 @@
 package biz.laenger.android.claus.example;
 
-import biz.laenger.android.claus.ClausPresenterFragment;
+import biz.laenger.android.claus.BasePresenter;
 
-public class MainPresenter extends ClausPresenterFragment<MainView> {
+public class MainPresenter extends BasePresenter<MainView> {
 
     private int counter = 0;
 
     @Override
-    protected void onViewCreated() {
+    public void onViewCreated(MainView view) {
+        super.onViewCreated(view);
         updateText();
     }
 
@@ -17,7 +18,7 @@ public class MainPresenter extends ClausPresenterFragment<MainView> {
     }
 
     private void updateText() {
-        view().showText(String.format("button clicked %d times", counter));
+        getView().showText(String.format("button clicked %d times", counter));
     }
 
 }
