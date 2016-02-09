@@ -26,8 +26,8 @@ final class PresenterFragment<V, P extends BasePresenter<V>> extends Fragment {
     public final void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         final FragmentActivity activity = getActivity();
-        presenter.onViewCreated((V) activity);
         ((PresenterActivity<V, P>) activity).onPresenterReady(presenter);
+        presenter.onViewCreated((V) activity);
     }
 
     @Override
