@@ -16,6 +16,6 @@ Add the library to the dependencies:
 
 ```groovy
 dependencies {
-    compile "biz.laenger.android:claus:0.0.2-SNAPSHOT"
+    compile "biz.laenger.android:claus:0.0.3-SNAPSHOT"
 }
 ```

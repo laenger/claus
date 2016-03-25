@@ -8,7 +8,12 @@ public abstract class PresenterActivity<V, P extends BasePresenter<V>> extends A
 
     private static final String TAG_PRESENTER = "PRESENTER";
 
+    private final Class<P> presenterClass;
     private P presenter;
+
+    protected PresenterActivity(Class<P> presenterClass) {
+        this.presenterClass = presenterClass;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +23,9 @@ public abstract class PresenterActivity<V, P extends BasePresenter<V>> extends A
         final PresenterFragment presenterFragment = (PresenterFragment) fragmentManager.findFragmentByTag(TAG_PRESENTER);
 
         if (presenterFragment == null) {
-            final P presenter = instantiatePresenter();
-            fragmentManager.beginTransaction().add(new PresenterFragment<V, P>(presenter), TAG_PRESENTER).commit();
+            fragmentManager.beginTransaction().add(PresenterFragment.newInstance(presenterClass), TAG_PRESENTER).commit();
         }
     }
-
-    protected abstract P instantiatePresenter();
 
     protected void onPresenterReady(P presenter) {
         this.presenter = presenter;

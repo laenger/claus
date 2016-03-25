@@ -4,7 +4,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.5.0'
-        classpath 'org.codehaus.groovy:gradle-groovy-android-plugin:0.3.7'
+        classpath 'org.codehaus.groovy:gradle-groovy-android-plugin:0.3.9'
     }
 }
 
@@ -12,7 +12,6 @@ ext.set('runningOnJenkins', System.getenv('JENKINS_URL') != null)
 
 ext.set('nexusReleasesRepository', getEnvOrProperty('NEXUS_RELEASES_REPOSITORY'))
 ext.set('nexusSnapshotsRepository', getEnvOrProperty('NEXUS_SNAPSHOTS_REPOSITORY'))
-ext.set('nexusThirdpartyRepostiry', getEnvOrProperty('NEXUS_THIRDPARTY_REPOSITORY'))
 ext.set('nexusUsername', getEnvOrProperty('NEXUS_USERNAME'))
 ext.set('nexusPassword', getEnvOrProperty('NEXUS_PASSWORD'))
 
@@ -32,13 +31,6 @@ allprojects {
                 password nexusPassword
             }
             url nexusSnapshotsRepository
-        }
-        maven {
-            credentials {
-                username nexusUsername
-                password nexusPassword
-            }
-            url nexusThirdpartyRepostiry
         }
     }
 }

@@ -10,17 +10,16 @@ public class MainActivity extends PresenterActivity<MainView, MainPresenter> imp
 
     private TextView textView;
 
+    public MainActivity() {
+        super(MainPresenter.class);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = (TextView) findViewById(R.id.textView);
         findViewById(R.id.button).setOnClickListener(this);
-    }
-
-    @Override
-    protected MainPresenter instantiatePresenter() {
-        return new MainPresenter();
     }
 
     @Override
