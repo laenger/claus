@@ -46,7 +46,7 @@ public final class PresenterFragment<V, P extends BasePresenter<V>> extends Frag
     public final void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         final FragmentActivity activity = getActivity();
-        ((PresenterActivity<V, P>) activity).onPresenterReady(presenter);
+        ((PresenterListener<V, P>) activity).onPresenterReady(presenter);
         presenter.onViewCreated((V) activity);
     }
 

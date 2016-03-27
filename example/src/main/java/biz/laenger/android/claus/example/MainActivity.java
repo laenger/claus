@@ -23,12 +23,6 @@ public class MainActivity extends PresenterActivity<MainView, MainPresenter> imp
     }
 
     @Override
-    protected void onPresenterReady(MainPresenter presenter) {
-        super.onPresenterReady(presenter);
-        // ...
-    }
-
-    @Override
     public void showText(String text) {
         textView.setText(text);
     }

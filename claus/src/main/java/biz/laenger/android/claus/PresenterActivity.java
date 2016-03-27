@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-public abstract class PresenterActivity<V, P extends BasePresenter<V>> extends AppCompatActivity {
+public abstract class PresenterActivity<V, P extends BasePresenter<V>> extends AppCompatActivity implements PresenterListener<V, P> {
 
     private static final String TAG_PRESENTER = "PRESENTER";
 
@@ -27,7 +27,8 @@ public abstract class PresenterActivity<V, P extends BasePresenter<V>> extends A
         }
     }
 
-    protected void onPresenterReady(P presenter) {
+    @Override
+    public void onPresenterReady(P presenter) {
         this.presenter = presenter;
     }
 
