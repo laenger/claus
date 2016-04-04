@@ -3,6 +3,7 @@ package biz.laenger.android.claus;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 
 public abstract class BasePresenter<V> {
 
@@ -12,8 +13,13 @@ public abstract class BasePresenter<V> {
         // ;
     }
 
-    public void onViewCreated(V view) {
+    @CallSuper
+    public void bindView(V view) {
         this.view = view;
+    }
+
+    public void unbindView() {
+        // ;
     }
 
     public void onSavePresenterState(Bundle outState) {

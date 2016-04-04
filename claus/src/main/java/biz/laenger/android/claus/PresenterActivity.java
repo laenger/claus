@@ -28,8 +28,13 @@ public abstract class PresenterActivity<V, P extends BasePresenter<V>> extends A
     }
 
     @Override
-    public void onPresenterReady(P presenter) {
+    public void onPresenterAvailable(P presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public void onPresenterBound() {
+        // ;
     }
 
     public P getPresenter() {

@@ -10,12 +10,12 @@ class MainPresenterSpec extends Specification {
     def setup() {
         mockView = Mock(MainView)
         presenter = new MainPresenter()
-        presenter.onViewCreated(mockView)
+        presenter.bindView(mockView)
     }
 
     def "should set initial text"() {
         when:
-        presenter.onViewCreated(mockView)
+        presenter.bindView(mockView)
 
         then:
         1 * mockView.showText("button clicked 0 times")

@@ -7,8 +7,8 @@ public class MainPresenter extends BasePresenter<MainView> {
     private int counter = 0;
 
     @Override
-    public void onViewCreated(MainView view) {
-        super.onViewCreated(view);
+    public void bindView(MainView view) {
+        super.bindView(view);
         updateText();
     }
 
