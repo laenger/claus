@@ -1,5 +1,7 @@
 # claus
 
+**12/02/18 Deprecated: Use Android's [ViewModels](https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html) (Architecture Components) instead.**
+
 **28/06/16 Deprecated: this library is no longer maintained. Use [Together MVP](https://github.com/laenger/together-mvp) as an alternative.**
 
 ## Overview
